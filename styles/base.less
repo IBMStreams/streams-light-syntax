@@ -1,0 +1,323 @@
+@import "syntax-variables";
+
+atom-text-editor {
+  background-color: @StreamsBackground;
+  color: @StreamsText;
+  .datatip-highlight-region > .region {
+    background: @syntax-selection-color;
+  }
+  .wrap-guide {
+    background-color: @syntax-wrap-guide-color;
+  }
+
+  .indent-guide {
+    color: @syntax-indent-guide-color;
+  }
+  .find-result .region {
+    background-color: @syntax-result-marker-color-selected;
+  }
+  .bracket-matcher .region {
+    background-color: @StreamsBracketMatch;
+    opacity: .6;
+    border-bottom: 0 none;
+}
+  .invisible-character {
+    color: @syntax-invisible-character-color;
+  }
+
+  .gutter {
+    background-color: @syntax-gutter-background-color;
+    color: @syntax-gutter-text-color;
+
+    .line-number {
+      &.cursor-line {
+        background-color: @syntax-gutter-background-color-selected;
+        color: @syntax-gutter-text-color-selected;
+      }
+
+      &.cursor-line-no-selection {
+        color: @syntax-gutter-text-color-selected;
+      }
+    }
+  }
+
+  .gutter .line-number.folded,
+  .gutter .line-number:after,
+  .fold-marker:after {
+    color: @StreamsText;
+  }
+
+  .invisible {
+    color: @StreamsText;
+  }
+
+  .cursor {
+    color: @StreamsCursor;
+  }
+
+  .selection .region {
+    background-color: @StreamsSelectRegion;
+  }
+}
+code {
+  color: #0f0f0f;
+  font-weight: bold;
+  background-color: #ffffff;
+}
+pre {
+  code {
+    font-size: medium;
+  }
+}
+.datatip-marked-container {
+  color: #000000;
+  background-color: #f8cbaee7;
+  font-size: 20px;
+  max-height: 300px;
+  max-width: 500px;
+  overflow: auto;
+  padding: 8px;
+  white-space: normal;
+
+  // Avoid excess internal padding from markdown blocks.
+  :first-child {
+    margin-top: 0;
+  }
+
+  :last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Syntax styles
+
+.syntax--comment {
+  color: @StreamsComment;
+}
+
+.syntax--keyword {
+  color: @StreamsKeyword;
+  font-weight: bold;
+
+  &.syntax--control {
+    color: @StreamsKeyword;
+  }
+
+  &.syntax--operator {
+    color: @StreamsText;
+  }
+
+  &.syntax--other.syntax--special-method {
+    color: @StreamsText;
+  }
+
+  &.syntax--other.syntax--unit {
+    color: @StreamsText;
+  }
+}
+.syntax--storage {
+  color: @StreamsKeyword;
+  font-weight: bold;
+
+  &.syntax--modifier.syntax--namespace {
+    color: @StreamsText;
+  }
+
+  &.syntax--modifier.syntax--use {
+    color: @StreamsText;
+  }
+}
+
+.syntax--constant {
+  color: @StreamsText;
+
+  &.syntax--character.syntax--escape {
+    color: @StreamsText;
+  }
+
+  &.syntax--numeric {
+    color: @StreamsNumeric;
+  }
+
+  &.syntax--other.syntax--color {
+    color: @StreamsText;
+  }
+
+  &.syntax--other.syntax--symbol {
+    color: @StreamsText;
+  }
+}
+
+.syntax--variable {
+  color: @StreamsText;
+
+  &.syntax--parameter.syntax--function {
+    color: @StreamsText;
+  }
+}
+
+.syntax--invalid.syntax--illegal {
+  background-color: @StreamsInvalid;
+  color: @StreamsText;
+}
+
+.syntax--string {
+  color: @StreamsString;
+}
+
+.syntax--punctuation {
+  &.syntax--definition {
+    &.syntax--comment {
+      color: @StreamsComment;
+    }
+
+    &.syntax--string{
+      color: @StreamsString;
+    }
+    &.syntax--variable,
+    &.syntax--parameters,
+    &.syntax--array {
+      color: @StreamsText;
+    }
+  }
+
+}
+
+.syntax--support {
+  &.syntax--class {
+    color: @StreamsText;
+  }
+
+  &.syntax--function  {
+    color: @StreamsText;
+
+    &.syntax--any-method {
+      color: @StreamsText;
+    }
+  }
+}
+
+.syntax--entity {
+  &.syntax--name.syntax--function {
+    color: @StreamsText;
+    font-style:italic;
+  }
+  &.syntax--name.syntax--type {
+    &.syntax--composite {
+      color: @StreamsOpID;
+      font-weight: bold;
+    }
+    &.syntax--opID {
+      color: @StreamsOpID;
+      font-weight: bold;
+    }
+    &.syntax--streamID {
+      color: @StreamsStreamID;
+      font-weight: bold;
+    }
+  }
+
+  &.syntax--other.syntax--inherited-class {
+    color: @StreamsText;
+  }
+  &.syntax--name.syntax--class, &.syntax--name.syntax--type.syntax--class {
+    color: @StreamsText;
+  }
+
+  &.syntax--name.syntax--section {
+    color: @StreamsText;
+  }
+
+  &.syntax--name.syntax--tag {
+    color: @StreamsOpID;
+    text-decoration: underline;
+  }
+
+  &.syntax--other.syntax--attribute-name {
+    color: @StreamsKeyword;
+
+    &.syntax--id {
+      color: @StreamsText;
+    }
+  }
+}
+
+.syntax--meta {
+  &.syntax--class {
+    color: @StreamsText;
+  }
+
+  &.syntax--link {
+    color: @StreamsText;
+  }
+
+  &.syntax--require {
+    color: @StreamsText;
+  }
+
+  &.syntax--selector {
+    color: @StreamsText;
+  }
+
+  &.syntax--separator {
+    color: @StreamsText;
+  }
+}
+
+.syntax--none {
+  color: @StreamsText;
+}
+
+.syntax--markup {
+  &.syntax--bold {
+    color: @StreamsText;
+    font-weight: bold;
+  }
+
+  &.syntax--changed {
+    color: @StreamsText;
+  }
+
+  &.syntax--deleted {
+    color: @StreamsText;
+  }
+
+  &.syntax--italic {
+    color: @StreamsText;
+    font-style: italic;
+  }
+
+  &.syntax--heading .syntax--punctuation.syntax--definition.syntax--heading {
+    color: @StreamsText;
+  }
+
+  &.syntax--inserted {
+    color: @StreamsText;
+  }
+
+  &.syntax--list {
+    color: @StreamsText;
+  }
+
+  &.syntax--quote {
+    color: @StreamsText;
+  }
+
+  &.syntax--raw.syntax--inline {
+    color: @StreamsText;
+  }
+}
+
+.syntax--source.syntax--gfm .syntax--markup {
+  -webkit-font-smoothing: auto;
+  &.syntax--heading {
+    color: @StreamsText;
+  }
+}
+
+
+// Mini editor
+
+atom-text-editor[mini] .scroll-view {
+  padding-left: 1px;
+}

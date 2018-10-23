@@ -1,0 +1,15 @@
+{
+  "name": "streams-light-syntax",
+  "theme": "syntax",
+  "version": "0.0.0",
+  "description": "A light syntax theme for IBM Streams",
+  "keywords": [
+    "syntax",
+    "theme"
+  ],
+  "repository": "https://github.com/IBMStreams/streams-light-syntax",
+  "license": "Apache-2.0",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  }
+}
